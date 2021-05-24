@@ -26,4 +26,4 @@ yarn-error.log*
 #util
 /public/images
 /public/videos
-firebase.js
+/src/firebase.js
