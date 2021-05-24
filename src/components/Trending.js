@@ -1,34 +1,26 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectTrending } from '../features/movie/movieSlice';
 
 const Trending = () => {
+
+    const movies = useSelector(selectTrending);
+
     return (
         <Container>
             <h4>Trending</h4>
             <Content>
-                <Wrap>
-                    <Link to='/'>
-                        <img src="https://1.bp.blogspot.com/-R8mwFbgHi-o/YDAbyq6VUoI/AAAAAAAAV2o/U-GIjQR8qOIsQ6o3EjbgtPI3r2D8mVoPQCLcBGAsYHQ/s16000/flora-y-ulises-pelicula-disney-plus.jpg" alt="Flora y Ulyses" />
-                    </Link>
-                </Wrap>
-
-                <Wrap>
-                    <Link to='/'>
-                        <img src="https://1.bp.blogspot.com/-R8mwFbgHi-o/YDAbyq6VUoI/AAAAAAAAV2o/U-GIjQR8qOIsQ6o3EjbgtPI3r2D8mVoPQCLcBGAsYHQ/s16000/flora-y-ulises-pelicula-disney-plus.jpg" alt="Flora y Ulyses" />
-                    </Link>
-                </Wrap>
-
-                <Wrap>
-                    <Link to='/'>
-                        <img src="https://1.bp.blogspot.com/-R8mwFbgHi-o/YDAbyq6VUoI/AAAAAAAAV2o/U-GIjQR8qOIsQ6o3EjbgtPI3r2D8mVoPQCLcBGAsYHQ/s16000/flora-y-ulises-pelicula-disney-plus.jpg" alt="Flora y Ulyses" />
-                    </Link>
-                </Wrap>
-
-                <Wrap>
-                    <Link to='/'>
-                        <img src="https://1.bp.blogspot.com/-R8mwFbgHi-o/YDAbyq6VUoI/AAAAAAAAV2o/U-GIjQR8qOIsQ6o3EjbgtPI3r2D8mVoPQCLcBGAsYHQ/s16000/flora-y-ulises-pelicula-disney-plus.jpg" alt="Flora y Ulyses" />
-                    </Link>
-                </Wrap>
+                {
+                    movies && movies.map((movie, key) => (
+                        <Wrap key={key}>
+                            {movie.id}
+                            <Link to={'/detail/' + movie.id}>
+                                <img src={movie.cardImg} alt={movie.title} /> 
+                            </Link>
+                        </Wrap>
+                    ))
+                }
             </Content>
         </Container>
     );
@@ -62,7 +54,6 @@ const Wrap = styled.div`
         inset: 0px;
         display: block;
         height: 100%;
-        object-fit: cover;
         opacity: 1;
         position: absolute;
         transition: opacity 500ms ease-in-out 0s;

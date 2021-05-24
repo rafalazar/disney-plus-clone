@@ -8,9 +8,8 @@ import Trending from './Trending';
 import Viewers from './Viewers';
 import { useDispatch, useSelector } from 'react-redux';
 import db from '../firebase';
-import { setMovies } from '../features/movie/movieSlice';
+import { setMovies} from '../features/movie/movieSlice';
 import { selectUserName } from '../features/user/userSlice';
-
 const Home = () => {
 
     const dispatch = useDispatch();
