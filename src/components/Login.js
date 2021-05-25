@@ -6,7 +6,11 @@ const Login = () => {
             <Content>
                 <CTA>
                     <CTALogoOne src='/images/cta-logo-one.svg' alt='logo one' />
-                    <SignUp>GET ALL THERE</SignUp>
+                    <SignUp>
+                        <a href="https://www.hulu.com/disney-bundle-3" target='_blank'>
+                            GET ALL THERE
+                        </a>
+                    </SignUp>
                     <Description>Get Premier Access to Raya and the Last Dragon for an additional fee with a Disney+ subscription. As of 03/26/21, the price of Disney+ and The Disney Bundle will increase by $1.</Description>
                     <CTALogoTwo src='/images/cta-logo-two.png' alt='logo two' />
                 </CTA>
